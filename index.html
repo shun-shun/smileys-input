@@ -118,9 +118,7 @@
         /* リセットCSS ここまで */
 
         body {
-            background-image: url('./background-smile.png');
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-color: #fddee5;
             display: grid;
             grid-template-rows: auto 1fr auto;
             min-height: 100lvh;
@@ -201,6 +199,23 @@
         input {
             display: none;
         }
+
+        content {
+            position: absolute;
+        }
+
+        #backgroundimage {
+            position: relative;
+            opacity: 0.6;
+            width: 70%;
+            left: 50%;
+            bottom: 10%;
+            transform: translate(-50%, -20%);
+            /* background-image: url('./background-smile.png');
+            background-repeat: no-repeat;
+            background-size: cover; */
+            z-index: 99;
+        }
     </style>
 </head>
 
@@ -218,6 +233,9 @@
         <div id="image">
             <label for="upload">写真を撮影してアップロードする</label>
             <input id="upload" type="file" name="image" accept="image/*" capture>
+        </div>
+        <div id="backgroundimage">
+            <img src="./background-smile.png">
         </div>
 
     </main>

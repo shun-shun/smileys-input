@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding_photo_shower</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        /* リセットCSS */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :where([hidden]:not([hidden='until-found'])) {
+            display: none !important;
+        }
+
+        :where(html) {
+            -webkit-text-size-adjust: none;
+            color-scheme: dark light;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            :where(html:focus-within) {
+                scroll-behavior: smooth;
+            }
+        }
+
+        :where(body) {
+            line-height: 1.5;
+            font-family: system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        :where(input, button, textarea, select) {
+            font: inherit;
+            color: inherit;
+        }
+
+        :where(textarea) {
+            resize: vertical;
+            resize: block;
+        }
+
+        :where(button, label, select, summary, [role='button'], [role='option']) {
+            cursor: pointer;
+        }
+
+        :where(:disabled) {
+            cursor: not-allowed;
+        }
+
+        :where(label:has(> input:disabled), label:has(+ input:disabled)) {
+            cursor: not-allowed;
+        }
+
+        :where(button) {
+            border-style: solid;
+        }
+
+        :where(a) {
+            color: inherit;
+            text-underline-offset: 0.2ex;
+        }
+
+        :where(ul, ol) {
+            list-style: none;
+        }
+
+        :where(img, svg, video, canvas, audio, iframe, embed, object) {
+            display: block;
+        }
+
+        :where(img, picture, svg) {
+            max-inline-size: 100%;
+            block-size: auto;
+        }
+
+        :where(p, h1, h2, h3, h4, h5, h6) {
+            overflow-wrap: break-word;
+        }
+
+        :where(h1, h2, h3) {
+            line-height: calc(1em + 0.5rem);
+        }
+
+        :where(hr) {
+            border: none;
+            border-block-start: 1px solid;
+            color: inherit;
+            block-size: 0;
+            overflow: visible;
+        }
+
+        :where(:focus-visible) {
+            outline: 3px solid Highlight;
+            outline-offset: 2px;
+            scroll-margin-block: 10vh;
+        }
+
+        :where(.visually-hidden:not(:focus-within, :active)) {
+            clip-path: inset(50%) !important;
+            height: 1px !important;
+            width: 1px !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        /* リセットCSS ここまで */
+
+        body {
+            background-image: url('./background-flower.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100lvh;
+        }
+
+        header,
+        footer {
+            height: 16px;
+            background-color: #6699ffad;
+            color: #fff;
+            font-size: 8px;
+            text-align: center;
+        }
+
+        .circle {
+            margin-top: 20%;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: rgba(42, 83, 246, 0.695);
+            width: 150px;
+            height: 150px;
+            display: flow;
+            border-radius: 50%;
+            border: solid #949494 3px;
+            text-align: center;
+        }
+
+        .circle-content {
+            padding-top: 24px;
+            color: #fff
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+        .text {
+            font-size: 12px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+        #date {
+            font-size: 32px;
+            font-family: 'Itim', cursive;
+        }
+
+        .btn--orange,
+        a.btn--orange {
+            color: #fff;
+            background-color: #eb6100;
+        }
+
+        .btn--orange:hover,
+        a.btn--orange:hover {
+            color: #fff;
+            background: #f56500;
+        }
+
+        a.btn--radius {
+            border-radius: 100vh;
+        }
+
+        label {
+            display: block;
+            width: 80%;
+            margin: 50% auto;
+            padding: 10px 0;
+            text-align: center;
+            border: 0;
+            box-shadow: none;
+            color: #ffffff;
+            font-size: 1rem;
+            background-color: #d43ae8;
+            cursor: pointer;
+        }
+
+        input {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <main class='content'>
+        <div class="circle">
+            <div class="circle-content">
+                <div class="text">Shun & Haruki</div>
+                <div class="text">Wedding Party</div>
+                <div id="date">11,4</div>
+                <div class="text">Saturday 2023</div>
+            </div>
+        </div>
+        <div id="image">
+            <label for="upload">写真を撮影してアップロードする</label>
+            <input id="upload" type="file" name="image" accept="image/*" capture>
+        </div>
+
+    </main>
+    <footer>Designed by Shun and Haruki. Invitation design © 2023.</footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</html>

@@ -135,7 +135,7 @@
         }
 
         .circle {
-            margin-top: 10%;
+            margin-top: 8%;
             margin-right: auto;
             margin-left: auto;
             background-color: rgba(42, 83, 246, 0.695);
@@ -183,10 +183,10 @@
             border-radius: 100vh;
         }
 
-        label {
+        #pic {
             display: block;
             width: 80%;
-            margin: 30% auto 0;
+            margin: 10svh auto 0;
             padding: 10px 0;
             text-align: center;
             border: 0;
@@ -195,6 +195,21 @@
             font-weight: bold;
             font-size: 1rem;
             background-color: #f59827;
+            cursor: pointer;
+        }
+
+        #submitLabel {
+            display: block;
+            width: 80%;
+            margin: 16px auto 0;
+            padding: 10px 0;
+            text-align: center;
+            border: 0;
+            box-shadow: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1rem;
+            background-color: #279cf5;
             cursor: pointer;
         }
 
@@ -211,8 +226,15 @@
             opacity: 0.4;
             width: 60%;
             left: 50%;
-            bottom: -5%;
+            bottom: 0%;
             transform: translateX(-50%);
+        }
+
+        #picture {
+            margin-top: 10%;
+            margin-right: auto;
+            margin-left: auto;
+            width: 80%;
         }
     </style>
 </head>
@@ -228,10 +250,11 @@
                 <div class="text">Saturday 2023</div>
             </div>
         </div>
-        <div id="image">
-            <label for="upload">写真を撮影してアップロードする</label>
+        <form id="image">
+            <img id="picture">
+            <label for="upload" id="pic">写真を撮影する</label>
             <input id="upload" type="file" name="image" accept="image/*" capture>
-        </div>
+        </form>
         <div id="backgroundimage">
             <img src="./background-smile.png">
         </div>
@@ -240,5 +263,29 @@
     <footer>Designed by Shun and Haruki. Invitation design © 2023.</footer>
 </body>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    // 1. ファイル選択後に呼ばれるイベント
+    $("#upload").on("change", function (e) {
+
+        // 2. 画像ファイルの読み込みクラス
+        var reader = new FileReader();
+
+        // 3. 準備が終わったら、id=sample1のsrc属性に選択した画像ファイルの情報を設定
+        reader.onload = function (e) {
+            $("#picture").attr("src", e.target.result);
+            $("label").css("margin", "3svh auto 0")
+            $("#backgroundimage").css("display", "none")
+            $('#upload').after('<label for="submit" id="submitLabel">アップロードする</label>');
+            $('#submitLabel').after('<input type="submit" id="submit" value="送信" onclick="upload()"/>');
+        }
+
+        // 4. 読み込んだ画像ファイルをURLに変換
+        reader.readAsDataURL(e.target.files[0]);
+    });
+
+    function upload() {
+        alert("tse")
+    }
+</script>
 
 </html>

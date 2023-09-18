@@ -316,7 +316,7 @@
       <form
         method="post"
         id="image"
-        action="https://script.google.com/macros/s/AKfycbxkDAlDLPYhijFAnihFPrqVcVFPmkp7k9uzVaIUjXd4rCN1_e5P6ExOGEabNJ-CMguw/exec"
+        action="https://script.google.com/macros/s/AKfycbxNE4vmR0owymCkQliXsfwjImCws9Ude1clTALjFLnr5VcSGb19y_tC7sZokd8lhZWu/exec"
       >
         <img id="picture" />
         <label for="upload" id="pic">写真を撮影する</label>
@@ -382,6 +382,17 @@
       const loader = document.getElementsByClassName("loader")[0];
       //ローダーを表示する
       loader.style.display = "block";
+      sendout();
+    }
+
+    function sendout(msg) {
+      $("form").on("submit", function (e) {
+        // e.preventDefault();
+        setTimeout(function () {
+          // $("form").off("submit").submit();
+          window.location.reload();
+        }, 5000);
+      });
     }
   </script>
 </html>

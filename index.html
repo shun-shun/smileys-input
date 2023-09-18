@@ -245,6 +245,57 @@
         margin-left: auto;
         width: 80%;
       }
+
+      @keyframes sk-cubemove {
+        25% {
+          transform: translateX(42px) rotate(-90deg) scale(0.5);
+        }
+        50% {
+          transform: translateX(42px) translateY(42px) rotate(-179deg);
+        }
+        50.1% {
+          transform: translateX(42px) translateY(42px) rotate(-180deg);
+        }
+        75% {
+          transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+        }
+        100% {
+          transform: rotate(-360deg);
+        }
+      }
+
+      .loader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        display: none;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .loader__spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 57px;
+        height: 57px;
+        transform: translate(-50%, -50%);
+      }
+      .loader__spinner--cube1,
+      .loader__spinner--cube2 {
+        background-color: #ffffff;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: sk-cubemove 2s infinite ease-in-out;
+      }
+
+      .loader__spinner--cube2 {
+        animation-delay: -1s;
+      }
     </style>
   </head>
 
@@ -278,6 +329,12 @@
           onchange="Upload(this,'himage')"
         />
         <input type="hidden" id="himage" name="himage" />
+        <div class="loader">
+          <div class="loader__spinner">
+            <div class="loader__spinner--cube1"></div>
+            <div class="loader__spinner--cube2"></div>
+          </div>
+        </div>
       </form>
     </main>
     <footer>Designed by Shun and Haruki. Invitation design © 2023.</footer>
@@ -302,7 +359,7 @@
           '<label for="submit" id="submitLabel">アップロード</label>'
         );
         $("#submitLabel").after(
-          '<input type="submit" id="submit" value="送信"/>'
+          '<input type="submit" id="submit" value="送信" onclick="sending()"/>'
         );
       };
 
@@ -319,6 +376,12 @@
         var image = document.getElementById(id);
         image.value = reader.result.split(",")[1];
       };
+    }
+
+    function sending() {
+      const loader = document.getElementsByClassName("loader")[0];
+      //ローダーを表示する
+      loader.style.display = "block";
     }
   </script>
 </html>

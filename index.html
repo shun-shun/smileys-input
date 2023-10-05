@@ -1,398 +1,396 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wedding_photo_shower(11.4)</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <style>
-      /* リセットCSS */
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      :where([hidden]:not([hidden="until-found"])) {
-        display: none !important;
-      }
-
-      :where(html) {
-        -webkit-text-size-adjust: none;
-        color-scheme: dark light;
-      }
-
-      @media (prefers-reduced-motion: no-preference) {
-        :where(html:focus-within) {
-          scroll-behavior: smooth;
+        /* リセットCSS */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      }
 
-      :where(body) {
-        line-height: 1.5;
-        font-family: system-ui, sans-serif;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      :where(input, button, textarea, select) {
-        font: inherit;
-        color: inherit;
-      }
-
-      :where(textarea) {
-        resize: vertical;
-        resize: block;
-      }
-
-      :where(button, label, select, summary, [role="button"], [role="option"]) {
-        cursor: pointer;
-      }
-
-      :where(:disabled) {
-        cursor: not-allowed;
-      }
-
-      :where(label:has(> input:disabled), label:has(+ input:disabled)) {
-        cursor: not-allowed;
-      }
-
-      :where(button) {
-        border-style: solid;
-      }
-
-      :where(a) {
-        color: inherit;
-        text-underline-offset: 0.2ex;
-      }
-
-      :where(ul, ol) {
-        list-style: none;
-      }
-
-      :where(img, svg, video, canvas, audio, iframe, embed, object) {
-        display: block;
-      }
-
-      :where(img, picture, svg) {
-        max-inline-size: 100%;
-        block-size: auto;
-      }
-
-      :where(p, h1, h2, h3, h4, h5, h6) {
-        overflow-wrap: break-word;
-      }
-
-      :where(h1, h2, h3) {
-        line-height: calc(1em + 0.5rem);
-      }
-
-      :where(hr) {
-        border: none;
-        border-block-start: 1px solid;
-        color: inherit;
-        block-size: 0;
-        overflow: visible;
-      }
-
-      :where(:focus-visible) {
-        outline: 3px solid Highlight;
-        outline-offset: 2px;
-        scroll-margin-block: 10vh;
-      }
-
-      :where(.visually-hidden:not(:focus-within, :active)) {
-        clip-path: inset(50%) !important;
-        height: 1px !important;
-        width: 1px !important;
-        overflow: hidden !important;
-        position: absolute !important;
-        white-space: nowrap !important;
-        border: 0 !important;
-      }
-
-      /* リセットCSS ここまで */
-
-      body {
-        background-color: #fddee5ad;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        min-height: 100dvh;
-        height: 100dvh;
-      }
-
-      header,
-      footer {
-        height: 20px;
-        background-color: rgb(28 63 203 / 64%);
-        color: #fff;
-        font-size: 12px;
-        text-align: center;
-      }
-
-      .circle {
-        margin-top: 8%;
-        margin-right: auto;
-        margin-left: auto;
-        background-color: rgb(28 63 203 / 64%);
-        width: 170px;
-        height: 170px;
-        display: flow;
-        border-radius: 50%;
-        border: dotted #fefefe 3px;
-        border-width: 1.5px;
-        text-align: center;
-      }
-
-      .circle-content {
-        padding-top: 38px;
-        color: #fff;
-      }
-
-      @import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
-
-      .text {
-        font-size: 4.5vw;
-        line-height: 1em;
-        font-family: "Cormorant Garamond", serif;
-      }
-
-      .small-text {
-        font-size: 4vw;
-      }
-
-      @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
-
-      #date {
-        line-height: 1.1em;
-        font-size: 2.7em;
-        font-family: "Itim", cursive;
-      }
-
-      .btn--orange,
-      a.btn--orange {
-        color: #fff;
-        background-color: #eb6100;
-      }
-
-      .btn--orange:hover,
-      a.btn--orange:hover {
-        color: #fff;
-        background: #f56500;
-      }
-
-      a.btn--radius {
-        border-radius: 100vh;
-      }
-
-      #pic {
-        display: block;
-        width: 80%;
-        margin: 10svh auto 0;
-        padding: 10px 0;
-        text-align: center;
-        border: 0;
-        box-shadow: none;
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 1rem;
-        background-color: #f59827;
-        cursor: pointer;
-      }
-
-      #submitLabel {
-        display: block;
-        width: 80%;
-        margin: 16px auto 0;
-        padding: 10px 0;
-        text-align: center;
-        border: 0;
-        box-shadow: none;
-        color: #ffffff;
-        font-weight: bold;
-        font-size: 1rem;
-        background-color: #279cf5;
-        cursor: pointer;
-      }
-
-      input {
-        display: none;
-      }
-
-      content {
-        position: absolute;
-      }
-
-      #backgroundimage {
-        position: relative;
-        opacity: 0.4;
-        width: 60%;
-        left: 50%;
-        bottom: -5%;
-        transform: translateX(-50%);
-      }
-
-      #picture {
-        margin-top: 10%;
-        margin-right: auto;
-        margin-left: auto;
-        width: 80%;
-      }
-
-      @keyframes sk-cubemove {
-        25% {
-          transform: translateX(42px) rotate(-90deg) scale(0.5);
+        :where([hidden]:not([hidden="until-found"])) {
+            display: none !important;
         }
-        50% {
-          transform: translateX(42px) translateY(42px) rotate(-179deg);
-        }
-        50.1% {
-          transform: translateX(42px) translateY(42px) rotate(-180deg);
-        }
-        75% {
-          transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
-        }
-        100% {
-          transform: rotate(-360deg);
-        }
-      }
 
-      .loader {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
-        display: none;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-      }
-      .loader__spinner {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 57px;
-        height: 57px;
-        transform: translate(-50%, -50%);
-      }
-      .loader__spinner--cube1,
-      .loader__spinner--cube2 {
-        background-color: #ffffff;
-        width: 15px;
-        height: 15px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        animation: sk-cubemove 2s infinite ease-in-out;
-      }
+        :where(html) {
+            -webkit-text-size-adjust: none;
+            color-scheme: dark light;
+        }
 
-      .loader__spinner--cube2 {
-        animation-delay: -1s;
-      }
+        @media (prefers-reduced-motion: no-preference) {
+            :where(html:focus-within) {
+                scroll-behavior: smooth;
+            }
+        }
+
+        :where(body) {
+            line-height: 1.5;
+            font-family: system-ui, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        :where(input, button, textarea, select) {
+            font: inherit;
+            color: inherit;
+        }
+
+        :where(textarea) {
+            resize: vertical;
+            resize: block;
+        }
+
+        :where(button, label, select, summary, [role="button"], [role="option"]) {
+            cursor: pointer;
+        }
+
+        :where(:disabled) {
+            cursor: not-allowed;
+        }
+
+        :where(label:has(> input:disabled), label:has(+ input:disabled)) {
+            cursor: not-allowed;
+        }
+
+        :where(button) {
+            border-style: solid;
+        }
+
+        :where(a) {
+            color: inherit;
+            text-underline-offset: 0.2ex;
+        }
+
+        :where(ul, ol) {
+            list-style: none;
+        }
+
+        :where(img, svg, video, canvas, audio, iframe, embed, object) {
+            display: block;
+        }
+
+        :where(img, picture, svg) {
+            max-inline-size: 100%;
+            block-size: auto;
+        }
+
+        :where(p, h1, h2, h3, h4, h5, h6) {
+            overflow-wrap: break-word;
+        }
+
+        :where(h1, h2, h3) {
+            line-height: calc(1em + 0.5rem);
+        }
+
+        :where(hr) {
+            border: none;
+            border-block-start: 1px solid;
+            color: inherit;
+            block-size: 0;
+            overflow: visible;
+        }
+
+        :where(:focus-visible) {
+            outline: 3px solid Highlight;
+            outline-offset: 2px;
+            scroll-margin-block: 10vh;
+        }
+
+        :where(.visually-hidden:not(:focus-within, :active)) {
+            clip-path: inset(50%) !important;
+            height: 1px !important;
+            width: 1px !important;
+            overflow: hidden !important;
+            position: absolute !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        /* リセットCSS ここまで */
+
+        body {
+            background-color: #fddee5ad;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+            min-height: 100dvh;
+            height: 100dvh;
+        }
+
+        header,
+        footer {
+            height: 20px;
+            background-color: rgb(28 63 203 / 64%);
+            color: #fff;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .circle {
+            margin-top: 8%;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: rgb(28 63 203 / 64%);
+            width: 170px;
+            height: 170px;
+            display: flow;
+            border-radius: 50%;
+            border: dotted #fefefe 3px;
+            border-width: 1.5px;
+            text-align: center;
+        }
+
+        .circle-content {
+            padding-top: 38px;
+            color: #fff;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Caveat&display=swap");
+
+        .text {
+            font-size: 4.5vw;
+            line-height: 1em;
+            font-family: "Cormorant Garamond", serif;
+        }
+
+        .small-text {
+            font-size: 4vw;
+        }
+
+        @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+
+        #date {
+            line-height: 1.1em;
+            font-size: 2.7em;
+            font-family: "Itim", cursive;
+        }
+
+        .btn--orange,
+        a.btn--orange {
+            color: #fff;
+            background-color: #eb6100;
+        }
+
+        .btn--orange:hover,
+        a.btn--orange:hover {
+            color: #fff;
+            background: #f56500;
+        }
+
+        a.btn--radius {
+            border-radius: 100vh;
+        }
+
+        #pic {
+            display: block;
+            width: 80%;
+            margin: 10svh auto 0;
+            padding: 10px 0;
+            text-align: center;
+            border: 0;
+            box-shadow: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1rem;
+            background-color: #f59827;
+            cursor: pointer;
+        }
+
+        #submitLabel {
+            display: block;
+            width: 80%;
+            margin: 16px auto 0;
+            padding: 10px 0;
+            text-align: center;
+            border: 0;
+            box-shadow: none;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1rem;
+            background-color: #279cf5;
+            cursor: pointer;
+        }
+
+        input {
+            display: none;
+        }
+
+        content {
+            position: absolute;
+        }
+
+        #backgroundimage {
+            position: relative;
+            opacity: 0.4;
+            width: 60%;
+            left: 50%;
+            bottom: -5%;
+            transform: translateX(-50%);
+        }
+
+        #picture {
+            margin-top: 10%;
+            margin-right: auto;
+            margin-left: auto;
+            width: 80%;
+        }
+
+        @keyframes sk-cubemove {
+            25% {
+                transform: translateX(42px) rotate(-90deg) scale(0.5);
+            }
+
+            50% {
+                transform: translateX(42px) translateY(42px) rotate(-179deg);
+            }
+
+            50.1% {
+                transform: translateX(42px) translateY(42px) rotate(-180deg);
+            }
+
+            75% {
+                transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+            }
+
+            100% {
+                transform: rotate(-360deg);
+            }
+        }
+
+        .loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            display: none;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .loader__spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 57px;
+            height: 57px;
+            transform: translate(-50%, -50%);
+        }
+
+        .loader__spinner--cube1,
+        .loader__spinner--cube2 {
+            background-color: #ffffff;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: sk-cubemove 2s infinite ease-in-out;
+        }
+
+        .loader__spinner--cube2 {
+            animation-delay: -1s;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
     <header></header>
     <main class="content">
-      <div class="circle">
-        <div class="circle-content">
-          <div class="text">Shun & Haruki</div>
-          <div class="text">Wedding Party</div>
-          <div id="date">11,4</div>
-          <div class="text small-text">Saturday 2023</div>
+        <div class="circle">
+            <div class="circle-content">
+                <div class="text">Shun & Haruki</div>
+                <div class="text">Wedding Party</div>
+                <div id="date">11,4</div>
+                <div class="text small-text">Saturday 2023</div>
+            </div>
         </div>
-      </div>
-      <div id="backgroundimage">
-        <img src="./background-smile.png" />
-      </div>
-      <form
-        method="post"
-        id="image"
-        action="https://script.google.com/macros/s/AKfycbwhsx0N5Aerc4Ym3mcOw4x5qGW2bOmshHnbFxt1PIkOnX-BNEbfEBwnrdd3sAyI0VkK/exec"
-      >
-        <img id="picture" />
-        <label for="upload" id="pic">写真を撮影する</label>
-        <input
-          id="upload"
-          type="file"
-          name="image"
-          accept="image/jpg, image/jpeg, image/gif, image/png"
-          multiple
-          onchange="Upload(this,'himage')"
-        />
-        <input type="hidden" id="himage" name="himage" />
-        <div class="loader">
-          <div class="loader__spinner">
-            <div class="loader__spinner--cube1"></div>
-            <div class="loader__spinner--cube2"></div>
-          </div>
+        <div id="backgroundimage">
+            <img src="./background-smile.png" />
         </div>
-      </form>
+        <form method="post" id="image"
+            action="https://script.google.com/macros/s/AKfycbwhsx0N5Aerc4Ym3mcOw4x5qGW2bOmshHnbFxt1PIkOnX-BNEbfEBwnrdd3sAyI0VkK/exec">
+            <img id="picture" />
+            <label for="upload" id="pic">写真を撮影する</label>
+            <input id="upload" type="file" name="image" accept="image/jpg, image/jpeg, image/gif, image/png"
+                onchange="Upload(this,'himage')" />
+            <input type="hidden" id="himage" name="himage" />
+            <div class="loader">
+                <div class="loader__spinner">
+                    <div class="loader__spinner--cube1"></div>
+                    <div class="loader__spinner--cube2"></div>
+                </div>
+            </div>
+        </form>
     </main>
     <footer>Designed by Shun and Haruki. Invitation design © 2023.</footer>
-  </body>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
     $("#picture").css("display", "none");
 
     // 1. ファイル選択後に呼ばれるイベント
     $("#upload").on("change", function (e) {
-      // 2. 画像ファイルの読み込みクラス
-      var reader = new FileReader();
+        // 2. 画像ファイルの読み込みクラス
+        var reader = new FileReader();
 
-      // 3. 準備が終わったら、id=sample1のsrc属性に選択した画像ファイルの情報を設定
-      reader.onload = function (e) {
-        $(".circle").css("display", "none");
-        $("#picture").css("display", "block");
-        $("#picture").attr("src", e.target.result);
-        $("label").css("margin", "3svh auto 0");
-        $("#backgroundimage").css("display", "none");
-        $("#picture").after(
-          '<label for="submit" id="submitLabel">アップロード</label>'
-        );
-        $("#submitLabel").after(
-          '<input type="submit" id="submit" value="送信" onclick="sending()"/>'
-        );
-      };
+        // 3. 準備が終わったら、id=sample1のsrc属性に選択した画像ファイルの情報を設定
+        reader.onload = function (e) {
+            $(".circle").css("display", "none");
+            $("#picture").css("display", "block");
+            $("#picture").attr("src", e.target.result);
+            $("label").css("margin", "3svh auto 0");
+            $("#backgroundimage").css("display", "none");
+            let submitLabel = document.getElementById("submitLabel")
+            if (submitLabel == null) {
+                $("#picture").after(
+                    '<label for="submit" id="submitLabel">アップロード</label>'
+                );
+            }
+            $("#submitLabel").after(
+                '<input type="submit" id="submit" value="送信" onclick="sending()"/>'
+            );
+        };
 
-      // 4. 読み込んだ画像ファイルをURLに変換
-      reader.readAsDataURL(e.target.files[0]);
+        // 4. 読み込んだ画像ファイルをURLに変換
+        reader.readAsDataURL(e.target.files[0]);
     });
 
     function Upload(input, id) {
-      var file = input.files[0];
-      var reader = new FileReader();
-      reader.fileName = file.name;
-      reader.readAsDataURL(file);
-      reader.onload = function () {
-        var image = document.getElementById(id);
-        image.value = reader.result.split(",")[1];
-      };
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.fileName = file.name;
+        reader.readAsDataURL(file);
+        reader.onload = function () {
+            var image = document.getElementById(id);
+            image.value = reader.result.split(",")[1];
+        };
     }
 
     function sending() {
-      const loader = document.getElementsByClassName("loader")[0];
-      //ローダーを表示する
-      loader.style.display = "block";
-      sendout();
+        const loader = document.getElementsByClassName("loader")[0];
+        //ローダーを表示する
+        loader.style.display = "block";
+        sendout();
     }
 
     function sendout(msg) {
-      $("form").on("submit", function (e) {
-        // e.preventDefault();
-        setTimeout(function () {
-          // $("form").off("submit").submit();
-          window.location.reload();
-        }, 5000);
-      });
+        $("form").on("submit", function (e) {
+            // e.preventDefault();
+            setTimeout(function () {
+                // $("form").off("submit").submit();
+                window.location.reload();
+            }, 5000);
+        });
     }
-  </script>
+</script>
+
 </html>

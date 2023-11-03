@@ -121,7 +121,7 @@
       /* リセットCSS ここまで */
 
       body {
-        background-color: #fddee5ad;
+        background-color: #fddee5;
         display: grid;
         grid-template-rows: auto 1fr auto;
         min-height: 100dvh;
@@ -295,6 +295,13 @@
 
       .loader__spinner--cube2 {
         animation-delay: -1s;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #fddee5;
+          color: #000;
+        }
       }
     </style>
   </head>
